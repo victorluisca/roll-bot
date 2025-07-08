@@ -7,17 +7,17 @@ function flip() {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("flip")
-    .setDescription("Randomly flip a coin to get head or tails."),
+    .setDescription("Randomly flip a coin to get heads or tails."),
   async execute(interaction) {
     const result = flip();
 
     if (result === 0) {
       await interaction.reply(
-        `${interaction.user.username} flipped a coin: HEADS`
+        `**${interaction.user.username}** flipped a coin: *HEADS*`
       );
     } else {
       await interaction.reply(
-        `${interaction.user.username} flipped a coin: TAILS`
+        `**${interaction.user.username}** flipped a coin: *TAILS*`
       );
     }
   },

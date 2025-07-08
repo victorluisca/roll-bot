@@ -9,11 +9,11 @@ function roll(min, max) {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("roll")
-    .setDescription("Rolls a random number")
+    .setDescription("Randomly roll dice.")
     .addIntegerOption((option) =>
       option
         .setName("max")
-        .setDescription("Maximum number to roll")
+        .setDescription("Maximum number to roll.")
         .setRequired(true)
     ),
   async execute(interaction) {
@@ -21,7 +21,7 @@ module.exports = {
 
     if (max <= 1) {
       await interaction.reply({
-        content: "Please enter a number greater than 1",
+        content: "Please enter a number greater than 1.",
         ephemeral: true,
       });
       return;
@@ -29,7 +29,7 @@ module.exports = {
 
     const result = roll(1, max);
     await interaction.reply(
-      `${interaction.user.username} rolls ${result} (1-${max})`
+      `**${interaction.user.username}** rolls (1-${max}): ${result}`
     );
   },
 };
